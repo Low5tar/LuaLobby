@@ -1,0 +1,9 @@
+main: com.redeforest.lobby.Main
+name: LuaLobby
+version: 1.0.0
+authors: Low5tar
+
+commands:
+   spawn:
+   setspawn:
+   fly:
