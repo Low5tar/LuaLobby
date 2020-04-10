@@ -1,7 +1,7 @@
-main: com.redeforest.lobby.Main
+main: com.redeforest.low5tar.lobby.Main
 name: LuaLobby
 version: 1.0.0
-authors: Low5tar
+author: Low5tar
 
 commands:
    spawn:
