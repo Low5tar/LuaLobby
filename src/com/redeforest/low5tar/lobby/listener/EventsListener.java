@@ -46,20 +46,20 @@ public class EventsListener implements Listener
         e.setJoinMessage(null);
         p.getInventory().clear();
         p.setGameMode(GameMode.SURVIVAL);
-        sendHeaderAndFooter(p, "\n§e§lREDE LUA\n   §7(§fLOBBY 1§7)\n", "\n   §8LOJA.REDELUA.COM\n§f   Um mundo totalmente mágico!   \n   "); 
-        TitleAndAction.EnviarTitle(p, "§e§lLUA", "§fMais uma Lua no nosso servidor!", 55,55,55);
-        TitleAndAction.EnviarActionbar(p, "§aBem Vindo à Rede Lua");
+        sendHeaderAndFooter(p, "\nÂ§eÂ§lREDE LUA\n   Â§7(Â§fLOBBY 1Â§7)\n", "\n   Â§8LOJA.REDELUA.COM\nÂ§f   Um mundo totalmente mÃ¡gico!   \n   "); 
+        TitleAndAction.EnviarTitle(p, "Â§eÂ§lLUA", "Â§fMais uma Lua no nosso servidor!", 55,55,55);
+        TitleAndAction.EnviarActionbar(p, "Â§aBem Vindo Ã  Rede Lua");
         p.getInventory().setHeldItemSlot(0);
     	
         for(int i = 1; i < 100; i++) {
     		p.sendMessage(" ");
     	}
-    	p.sendMessage("§e§lREDE LUA");
+    	p.sendMessage("Â§eÂ§lREDE LUA");
     	p.sendMessage(" ");
-    	p.sendMessage("§fSeja bem vindo ao §e§lSERVIDOR");
-    	p.sendMessage("§fEntre no nosso §9§lDISCORD §fpara saber as novidades §e(§3discord.redelua.com§e)");
+    	p.sendMessage("Â§fSeja bem vindo ao Â§eÂ§lSERVIDOR");
+    	p.sendMessage("Â§fEntre no nosso Â§9Â§lDISCORD Â§fpara saber as novidades Â§e(Â§3discord.redelua.comÂ§e)");
     	
-    	ItemStack compass = new ItemBuilder().type(Material.COMPASS).name("§9§lModos de Jogo §7(Clique)").build();
+    	ItemStack compass = new ItemBuilder().type(Material.COMPASS).name("Â§9Â§lModos de Jogo Â§7(Clique)").build();
     	p.getInventory().setItem(0, compass);
     	p.getInventory().setHeldItemSlot(0);
     	
@@ -84,19 +84,19 @@ public class EventsListener implements Listener
 			double worldborder = event.getPlayer().getWorld().getWorldBorder().getSize() / 2.0D;
 			if (event.getPlayer().getWorld().getWorldBorder().getCenter().getX() + worldborder < event.getTo().getX()) {
 				event.setCancelled(true);
-				event.getPlayer().sendMessage(ChatColor.RED + "Você não pode usar enderpearl na borda do servidor!");
+				event.getPlayer().sendMessage(ChatColor.RED + "VocÃª nÃ£o pode usar enderpearl na borda do servidor!");
 				return;
 			} else if (event.getPlayer().getWorld().getWorldBorder().getCenter().getX() - worldborder > event.getTo().getX()) {
 				event.setCancelled(true);
-				event.getPlayer().sendMessage(ChatColor.RED + "Você não pode usar enderpearl na borda do servidor!");
+				event.getPlayer().sendMessage(ChatColor.RED + "VocÃª nÃ£o pode usar enderpearl na borda do servidor!");
 				return;
 			} else if (event.getPlayer().getWorld().getWorldBorder().getCenter().getZ() + worldborder < event.getTo().getZ()) {
 				event.setCancelled(true);
-				event.getPlayer().sendMessage(ChatColor.RED + "Você não pode usar enderpearl na borda do servidor!");
+				event.getPlayer().sendMessage(ChatColor.RED + "VocÃª nÃ£o pode usar enderpearl na borda do servidor!");
 				return;
 			} else if (event.getPlayer().getWorld().getWorldBorder().getCenter().getZ() - worldborder > event.getTo().getZ()) {
 				event.setCancelled(true);
-				event.getPlayer().sendMessage(ChatColor.RED + "Você não pode usar enderpearl na borda do servidor!");
+				event.getPlayer().sendMessage(ChatColor.RED + "VocÃª nÃ£o pode usar enderpearl na borda do servidor!");
 				return;
 			}
 		}
@@ -106,9 +106,9 @@ public class EventsListener implements Listener
 	public void onAnsycPlayerChatFormatEvent(AsyncPlayerChatEvent e) {
 		Player p = e.getPlayer();
 		if (p.hasPermission("com.redelua.lobby.chatcolor")) {
-			e.setFormat(p.getDisplayName() + "§b » §f" + e.getMessage().replace("%", "%%").replace("&", "§"));
+			e.setFormat(p.getDisplayName() + "Â§b Â» Â§f" + e.getMessage().replace("%", "%%").replace("&", "Â§"));
 		} else {
-			e.setFormat(p.getDisplayName() + "§b » §7" + e.getMessage().replace("%", "%%"));
+			e.setFormat(p.getDisplayName() + "Â§b Â» Â§7" + e.getMessage().replace("%", "%%"));
 		}
 	}
 	
@@ -138,6 +138,11 @@ public class EventsListener implements Listener
 	
 	@EventHandler
 	public void onFood(FoodLevelChangeEvent e) {
+		e.setCancelled(true);
+	}
+	
+	@EventHandler
+	public void onPvP(PlayerDamageEvent e) {
 		e.setCancelled(true);
 	}
 	
